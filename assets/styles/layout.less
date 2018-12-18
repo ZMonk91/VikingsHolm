@@ -1,0 +1,253 @@
+@footer-height: 40px;
+@container-md-max-width: 1100px;
+
+[v-cloak] { display: none; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#page-wrap {
+  height: 100%;
+  /* lesshint-disable */height: auto !important;/* lesshint-enable */
+  // ^^The above is to disable "importantRule" and "duplicateProperty" rules.
+  min-height: 100%;
+  position: relative;
+  padding-bottom: @footer-height;
+
+
+  header {
+    position: fixed;
+    width: 100%;
+    box-shadow: 0 2px #0000001a;
+    .logo {
+      height: 20px;
+    }
+    a {
+      cursor: pointer;
+    }
+    .dropdown-menu.account-menu {
+      left: auto;
+      right: 0px;
+    }
+  }
+
+  // App-wide styles for our ajax buttons
+  .ajax-button {
+    .ajax-button();
+  }
+}
+main{
+  margin-top: 5%;
+}
+#page-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  height: @footer-height;
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  .xs-only {
+    display: none;
+  }
+}
+
+body.detected-mobile {
+  // Above and beyond the media queries below, this selector (which relies on
+  // `parasails` automatically attaching this class, if appropriate) contains
+  // styles intended to be activated specifically when loaded from a recognized
+  // mobile device, regardless of viewport dimensions.  This includes tablet
+  // devices (like the iPad) as well as handset devices (like the iPhone).
+  // …
+}
+
+@media (max-width: 800px) {
+  #page-wrap {
+    padding-bottom: 75px;
+    #page-footer {
+      height: 75px;
+      .copy, .nav {
+        width: 100%;
+        display: block;
+        text-align: center;
+        .nav-item {
+          display: inline-block;
+          a {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  #page-wrap {
+    padding-bottom: 85px;
+    #page-footer {
+      height: 85px;
+      .xs-only {
+        display: block;
+      }
+    }
+  }
+}
+
+
+.sidebar-wrapper {
+    display: flex;
+    align-items: stretch;
+}
+.sidebar-header {
+  border-bottom: 1px solid #17a2b833;
+}
+.sidebar-header img {
+max-width: 100%;
+
+border: 3px solid black;
+
+margin-bottom: 2%;
+
+padding: 1%;
+
+background: wheat;
+}
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    max-height: 100vh;
+    padding-top: 5%;
+    margin-top: -5%;
+    border-radius: 0 0 1rem 0;
+    transition: all 0.3s;
+}
+#sidebar ul {
+display: grid;
+}
+#sidebar ul li {
+  background-color: #17a2b8;
+  margin-bottom: -1px;
+  margin-top: -1px;
+  text-align: center;
+  display: flow-root;
+  transition: all 0.3s;
+  border-right: 1px solid white;
+  margin-right: 3px;
+}
+#sidebar ul li:hover {
+  background-color: #1b92a5cc;
+  color: white;
+  text-decoration: none;
+}
+#sidebar ul a:hover {
+  background-color: #17a2b8cc;
+  color: white;
+  text-decoration: none;
+}
+#sidebar ul li i {
+
+    color: darkgray;
+    font-size: 2rem;
+    padding-left: .5rem;
+    margin-right: .5rem;
+    padding-right: 1rem;
+    width: 3.5rem;
+    background: #343a40;
+    border-right: 1px solid white;
+    float: left;
+    box-shadow: 2px 0px #0c0c0c33;
+    transition: all 0.3s;
+}
+
+#sidebar ul li i:hover{
+  color: white;
+  transition: all 0.3s;
+  text-decoration-style: none;
+}
+
+#sidebar ul a li:first-child {
+    border-top: 1px solid white;
+    border-top-right-radius: 5px;
+}
+#sidebar ul a li:last-child {
+    border-bottom: 1px solid white;
+    border-bottom-right-radius: 5px;
+}
+
+#sidebar ul a {
+  float: left;
+  color: white;
+  border-bottom: none;
+}
+#sidebar.active {
+    margin-left: -250px;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+}
+
+.chat-wrap {
+  box-shadow: 0 0 3px #ddd;
+  padding:0;
+  margin-left: 26%;
+  position: sticky;
+}
+.chat-row {
+  float: right;
+}
+.chat-room-wrap {
+  padding:10px;
+  max-height: 400px;
+  overflow: auto;
+}
+.chat-message-wrap {
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+  margin: 0 0 .1rem 0;
+}
+
+.chat-timestamp {
+  color:#bfbfbf;
+
+}
+.chat-send-wrap{
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding:10px;
+  display: flex;
+  /*background: #f8f8f8;*/
+}
+.chat-send-message {
+  resize: none;
+  max-width: 90%;
+}
+.send-message-btn {
+  color:#b8b8b8;
+  transition: 0.2s all ease-in-out;
+}
+.send-message-btn:hover {
+  color:#b8b8b8;
+  background: #f8f8f8;
+}
+.chat-username {
+  padding-left: .5rem;
+}

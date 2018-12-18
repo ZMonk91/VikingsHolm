@@ -1,0 +1,49 @@
+<% if(typeof me === 'undefined') {
+  // In case we're displaying the 404 or 500 page and relevant code in the "custom" hook was not able to run,
+  // we make sure `me` exists.  This ensures we don't have to do `typeof` checks below.
+  var me = undefined;
+} %>
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <% include ../partials/head %>
+    </head>
+
+    <body>
+        <div id="page-wrap">
+            <header id="page-header" class="navbar navbar-expand-sm navbar-dark bg-dark flex-column flex-md-row justify-content-between fixed-top">
+                <% include ../partials/header %>
+            </header>
+
+            <% include ../partials/email-verification %>
+                <main class="sidebar-wrapper">
+                    <% include ../partials/sidebar %>
+                        <div class="container well">
+                            <%- body %>
+                        </div>
+
+                        <% include ../partials/chatbox %>
+
+                </main>
+                <footer id="page-footer" class="navbar navbar-light justify-content-between flex-row-reverse">
+                    <% include ../partials/footer %>
+                </footer>
+
+        </div>
+
+
+        <% include ../partials/browser-detection %>
+            <script>
+                $(document).ready(function() {
+
+                    $('#sidebarCollapse').on('click', function() {
+                        $('#sidebar').toggleClass('active');
+                    });
+
+                });
+            </script>
+    </body>
+
+
+    </html>
